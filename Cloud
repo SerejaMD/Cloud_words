@@ -1,0 +1,14 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+import os 
+
+path = os.getcwd()
+
+
+file = pd.read_csv('%s'+'Cloud.csv'%path)
+
+text = ' '.join(file['Навыки'])
+cloud = WordCloud().generate(text)
+plt.imshow(cloud)
+cloud.to_file('My_Skills.png')
